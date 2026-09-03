@@ -1,0 +1,17 @@
+target            : fwd_vol_20d (S&P realized vol, next 20 trading days, annualized %)
+rows (with target): 6407   2001-02-21 -> 2026-08-05
+train/test split  : 2021-07-01  (5125 / 1282)
+target mean/std   : train 16.2 / 11.3   test 15.4 / 7.2
+
+HOLD-OUT (last 20%)          RMSE    MAE  Spearman  AUC-lbl  PR-lbl
+  ridge                      5.80   3.96    0.629    0.900   0.569
+  xgb_reg                    6.08   4.01    0.605    0.850   0.441
+  xgb_deep                  10.64   6.73    0.455    0.657   0.214
+
+WALK-FORWARD (5 folds)      Spearman  AUC-lbl  PR-lbl    RMSE
+  ridge                       0.531    0.879   0.705    7.17
+  xgb_reg                     0.534    0.873   0.683    7.22
+  xgb_deep                    0.477    0.810   0.537    8.87
+
+WINNER: ridge
+risk-score calibration: predicted vol 9.4 -> 0, 33.3 -> 100 (linear clip; train P25/P95)

@@ -1,0 +1,33 @@
+{
+  "kind": "regression",
+  "target": "fwd_vol_20d",
+  "horizon": 20,
+  "winner": "ridge",
+  "feature_columns": [
+    "VIX",
+    "SP500_return_20d",
+    "SP500_volatility",
+    "SP500_drawdown",
+    "YieldCurveSpread",
+    "CreditSpread",
+    "Bonds_return_20d",
+    "Gold_return_20d",
+    "EM_return_20d"
+  ],
+  "trained_through": "2021-06-30",
+  "risk_calibration": {
+    "lo": 9.432500747871563,
+    "hi": 33.25365274312212,
+    "feature_columns": [
+      "VIX",
+      "SP500_return_20d",
+      "SP500_volatility",
+      "SP500_drawdown",
+      "YieldCurveSpread",
+      "CreditSpread",
+      "Bonds_return_20d",
+      "Gold_return_20d",
+      "EM_return_20d"
+    ]
+  }
+}

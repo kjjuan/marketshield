@@ -1,0 +1,19 @@
+# virtualenv
+.venv/
+venv/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# scratch
+*.bak
+*.tmp
+
+# NOTE: model.pkl, model_meta.json, feature_stats.json and raw_market_data.csv
+# ARE committed on purpose — the deployed app loads them at startup and there is
+# no build step that regenerates them (that needs internet + ~30s of training).
+# Re-run `python fetch_data.py && python train.py` and commit when you want to
+# refresh the data / model.
